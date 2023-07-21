@@ -1,0 +1,33 @@
+#canvas-container {
+  border: 1px solid #000;
+  width: 750px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#canvas {
+  cursor: crosshair;
+}
+
+#controls {
+  position: absolute;
+  top: calc(90% + 1px); /* Adjust the value as needed for the desired spacing */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#color-picker {
+  width: 50px;
+}
+
+#brush-size {
+  width: 80px;
+}
+
+#eraser,
+#clear {
+  margin-left: 10px;
+}
