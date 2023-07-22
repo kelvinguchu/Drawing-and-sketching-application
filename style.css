@@ -1,33 +1,107 @@
-#canvas-container {
-  border: 1px solid #000;
-  width: 750px;
-  height: 450px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Import font */
+@font-face {
+  font-family: 'mexican';
+  src: url('./TACOBOX_.TTF');
 }
 
-#canvas {
-  cursor: crosshair;
+/* Use Google Font 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+/* General styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(245, 245, 245);
 }
 
+/* Flexbox center utility class */
+.flexbox-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Navbar styling */
+#navbar {
+  display: flex;
+  justify-content: center;
+}
+
+/* Title styling with custom font */
+#title {
+  font-family: 'mexican', sans-serif;
+  font-size: 30px; /* Add a margin at the top to push it down */
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+#app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Controls container styling */
 #controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Canvas container styling with box shadow */
+#canvas-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  width: 1300px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px; /* Add some margin to space it from controls */
+}
+
+/* Canvas styling */
+#canvas {
+  background-color: white;
+  cursor: crosshair;
+  transition: transform 0.3s;
   position: absolute;
-  top: calc(90% + 1px); /* Adjust the value as needed for the desired spacing */
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
 }
 
-#color-picker {
-  width: 50px;
+/* General control item styling */
+.control-item {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-#brush-size {
-  width: 80px;
+/* Styling for buttons and inputs */
+button,
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px 0;
 }
 
-#eraser,
-#clear {
-  margin-left: 10px;
+#controls button, 
+#controls input {
+  padding: 10px 10px;
+    width: auto; /* Remove the fixed 100% width */
+    margin: 0 2px;
+    font-family: 'Poppins', sans-serif;
+}
+
+select {
+  width: 10%;
+  padding: 5px 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
