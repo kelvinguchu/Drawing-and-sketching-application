@@ -4,18 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drawing App</title>
-    <link rel="stylesheet" href="draw.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="canvas-container">
-      <canvas id="canvas" width="750" height="450"></canvas>
-      </div>
+  <div id="navbar">
+    <h1 id="title">---- SKETCHy ----</h1>
+  </div>
+  <div id="app-container" class="flexbox-center flex-direction-column">
       <div id="controls">
         <input type="color" id="color-picker">
+            <label for="brush-type">Brush</label>
+      <select id="brush-type">
+          <option value="round">Round</option>
+          <option value="square">Square</option>
+          <option value="spray">Spray</option>
+          <option value="pen">Pen</option>
+          <option value="brush">Brush</option>
+      </select >
         <input type="range" id="brush-size" min="1" max="20" value="5">
+        <button id="shape-selector">Shapes</button>
+        <div id="shape-options" style="display:none;">
+            <select id="shape-select">
+                <option value="rectangle">Rectangle</option>
+                <option value="circle">Circle</option>
+                <option value="triangle">Triangle</option>
+                <option value="line">Line</option>
+                <option value="ellipse">Ellipse</option>
+                <option value="star">Star</option>
+                <option value="pentagon">Pentagon</option>
+                <option value="hexagon">Hexagon</option>
+                <option value="arrow">Arrow</option>
+                <option value="heart">Heart</option>
+            </select>
+        </div>        
         <button id="eraser">Eraser</button>
         <button id="clear">Clear</button>
+        <button id="undo">Undo</button>
+        <button id="redo">Redo</button>
+        <button id="zoom-in">Zoom In</button>
+        <button id="zoom-out">Zoom Out</button>
+        <input type="file" id="upload-image" accept="image/*">
+        <button id="save">Save</button>
       </div>
-      <script src="draw.js"></script>    
+      <div id="canvas-container">
+        <canvas id="canvas" width="1300" height="500"></canvas>
+      </div>
+  </div>
+      <script src="script.js"></script>    
 </body>
 </html>
