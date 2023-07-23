@@ -1,7 +1,32 @@
-/* Import font */
+/* Import fonts */
 @font-face {
   font-family: 'mexican';
-  src: url('./TACOBOX_.TTF');
+  src: url('./fonts/TACOBOX_.TTF');
+}
+
+@font-face {
+  font-family: 'notes';
+  src: url('./fonts/Cute\ Notes.ttf');
+}
+
+@font-face {
+  font-family: 'brush-script';
+  src: url('./fonts/Brush\ King.otf');
+}
+
+@font-face {
+  font-family: 'haru';
+  src: url('./fonts/Harukaze.ttf');
+}
+
+/* Define a CSS animation to change colors */
+@keyframes rainbow {
+  0% { color: #e91e63; }    /* Vibrant Pink */
+  20% { color: #2196f3; }   /* Vibrant Blue */
+  40% { color: #4caf50; }   /* Vibrant Green */
+  60% { color: #ff9800; }   /* Vibrant Orange */
+  80% { color: #9c27b0; }   /* Vibrant Purple */
+  100% { color: #f44336; }  /* Vibrant Red */
 }
 
 /* Use Google Font 'Poppins' */
@@ -50,18 +75,18 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   padding: 10px 0;
 }
 
 /* Canvas container styling with box shadow */
 #canvas-container {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.5);
   width: 1300px;
   height: 500px;
   position: relative;
   overflow: hidden;
-  margin-top: 20px; /* Add some margin to space it from controls */
+  margin-top: 10px; /* Add some margin to space it from controls */
 }
 
 /* Canvas styling */
@@ -96,12 +121,173 @@ input {
     font-family: 'Poppins', sans-serif;
 }
 
-select {
-  width: 10%;
-  padding: 5px 0;
+/* Style the brush type select container */
+.brush-type-container {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f1f1f1; /* Customize the background color of the container */
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'notes'; /* Use the "notes" font */
+}
+
+/* Style the brush type icon */
+.brush-type-container i {
+  font-family: 'notes'; /* Use the "notes" font */
+  font-size: 20px;
+  color: #333; /* Customize the color of the icon */
+  margin-right: 5px;
+}
+
+/* Style the select element */
+.brush-type-container select {
+  appearance: none;
   border: none;
+  background-color: transparent;
+  font-size: 22px;
+  color: #333; /* Customize the font color of the select text */
+  cursor: pointer;
+  font-family: 'notes'; /* Use the "notes" font */
+  padding: 5px;
+  margin-left: 5px;
+}
+
+/* Add an arrow icon to indicate the select dropdown */
+.brush-type-container:after {
+  content: "\f107"; /* Unicode for FontAwesome caret-down icon */
+  font-family: 'notes'; /* Use the "notes" font */
+  font-weight: 900;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #333; /* Customize the color of the arrow icon */
+}
+
+/* Style the brush type label with "Brush Script MT" font */
+.brush-type-label {
+  font-family: 'brush-script', sans-serif;
+  font-size: 10px;
+  color: #333; /* Customize the color of the label text */
+  margin-right: 5px;
+}
+
+/* Hide the default color picker */
+input[type="color"] {
+  display: none;
+}
+
+/* Style the custom color palette icon */
+.color-picker-label {
+  display: inline-block;
+  background-color: #ccc; /* Customize the background color of the icon */
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-picker-label i {
+  font-size: 24px;
+  color: #333; /* Customize the color of the icon */
+  display: block;
+}
+
+/* When the label is clicked, trigger the color picker */
+.color-picker-label:hover {
+  background-color: #ddd; /* Customize the background color on hover */
+}
+
+/* When the color picker is active, show a different background color */
+input[type="color"]:focus + .color-picker-label {
+  background-color: #eee; /* Customize the background color when the color picker is active */
+}
+
+/* Remove default styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Track styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Thumb styles */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+}
+
+/* Change thumb color on active state (when sliding) */
+input[type="range"]:active::-webkit-slider-thumb {
+  background-color: #45a049;
+}
+
+/* Change thumb color on focus */
+input[type="range"]:focus::-webkit-slider-thumb {
   outline: none;
-  box-sizing: border-box;
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 0 0 3px rgba(79, 148, 80, 0.3);
+}
+
+/* Style the buttons */
+button {
+  background-color: #f1f1f1;
+  border: none;
+  color: #555;
+  font-family: 'Font Awesome', sans-serif;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+/* On hover, change background color */
+button:hover {
+  background-color: #ddd;
+}
+
+/* On click, change background color */
+button:active {
+  background-color: #ccc;
+}
+
+/* Hide the default file input */
+#upload-image {
+  display: none;
+}
+
+/* Style the custom file input button */
+.custom-file-input {
+  font-family: 'haru', sans-serif;
+  font-size: 25px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.custom-file-input i {
+  margin-right: 5px;
+}
+
+/* Add hover effect */
+.custom-file-input:hover {
+  background-color: #e0e0e0;
 }
