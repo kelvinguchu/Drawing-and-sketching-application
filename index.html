@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drawing App</title>
+    <title>SKETCHy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div id="navbar">
@@ -12,39 +13,38 @@
   </div>
   <div id="app-container" class="flexbox-center flex-direction-column">
       <div id="controls">
+        <label for="color-picker" class="color-picker-label">
+          <i class="fas fa-palette"></i>
+        </label>
         <input type="color" id="color-picker">
-            <label for="brush-type">Brush</label>
-      <select id="brush-type">
-          <option value="round">Round</option>
-          <option value="square">Square</option>
-          <option value="spray">Spray</option>
-          <option value="pen">Pen</option>
-          <option value="brush">Brush</option>
-      </select >
-        <input type="range" id="brush-size" min="1" max="20" value="5">
-        <button id="shape-selector">Shapes</button>
-        <div id="shape-options" style="display:none;">
-            <select id="shape-select">
-                <option value="rectangle">Rectangle</option>
-                <option value="circle">Circle</option>
-                <option value="triangle">Triangle</option>
-                <option value="line">Line</option>
-                <option value="ellipse">Ellipse</option>
-                <option value="star">Star</option>
-                <option value="pentagon">Pentagon</option>
-                <option value="hexagon">Hexagon</option>
-                <option value="arrow">Arrow</option>
-                <option value="heart">Heart</option>
-            </select>
-        </div>        
-        <button id="eraser">Eraser</button>
-        <button id="clear">Clear</button>
-        <button id="undo">Undo</button>
-        <button id="redo">Redo</button>
-        <button id="zoom-in">Zoom In</button>
-        <button id="zoom-out">Zoom Out</button>
-        <input type="file" id="upload-image" accept="image/*">
-        <button id="save">Save</button>
+
+        <div class="brush-type-container">
+          <i class="fas fa-paint-brush"></i>
+          <span class="brush-type-label">Brush Type:</span>
+          <select id="brush-type">
+            <option value="round">Round</option>
+            <option value="square">Square</option>
+            <option value="spray">Spray</option>
+            <option value="pen">Pen</option>
+            <option value="brush">Brush</option>
+          </select>
+        </div>              
+        
+        <input type="range" id="brush-size" min="1" max="40" value="5"> 
+
+        <button id="eraser"><i class="fas fa-eraser"></i></button>
+        <button id="clear"><i class="fas fa-trash"></i></button>
+        <button id="undo"><i class="fas fa-undo"></i></button>
+        <button id="redo"><i class="fas fa-redo"></i></button>
+        <button id="zoom-in"><i class="fas fa-search-plus"></i></button>
+        <button id="zoom-out"><i class="fas fa-search-minus"></i></button>
+
+        <label for="upload-image" class="custom-file-input">
+          <i class="fas fa-upload"></i> Choose Image
+        </label>
+        <input type="file" id="upload-image" accept="image/*">        
+
+        <button id="save"><i class="fas fa-download"></i></button>
       </div>
       <div id="canvas-container">
         <canvas id="canvas" width="1300" height="500"></canvas>
